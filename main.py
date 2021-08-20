@@ -5,10 +5,12 @@ from vk_api import VkApi
 
 from pprint import pprint
 
+from .secret import TOKEN
+
 
 class SashinBot:
-    def __init__(self):
-        self.vk_api = VkApi(token=self.TOKEN)
+    def __init__(self, token):
+        self.vk_api = VkApi(token=token)
         self.vk_api._auth_token()
 
         self.api = self.vk_api.get_api()
@@ -73,7 +75,7 @@ class SashinBot:
 
 
 def main():
-    bot = SashinBot()
+    bot = SashinBot(TOKEN)
     bot.main_loop()
 
 
